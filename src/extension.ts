@@ -27,6 +27,7 @@ export function activate(context: vscode.ExtensionContext) {
   
   
   var rubocopExtension = vscode.extensions.getExtension( 'misogi.ruby-rubocop' );
+  var goToSpecExtansion = vscode.extensions.getExtension( 'sporto.rails-go-to-spec' );
 
   const pullRebase = vscode.commands.registerCommand('extension.pullRebase', () => {
     if (ensureTerminalExists()) {
@@ -65,8 +66,30 @@ export function activate(context: vscode.ExtensionContext) {
       vscode.commands.executeCommand('editor.action.formatDocument');
     }
   });
-  context.subscriptions.push(pullRebase, rubocop, push, correctRubocop);
+
+  const goToSpec = vscode.commands.registerCommand('extension.goToSpec', () => {
+    if( goToSpecExtansion !== undefined ) {
+      if( goToSpecExtansion.isActive === false ){
+        goToSpecExtansion.activate().then(
+          function(){
+              console.log( 'Go to spec activated');
+              
+          },
+          function(){
+              console.log( "Go to spec activation failed");
+          }
+        );   
+      }
+      vscode.commands.executeCommand('extension.railsGoToSpec');
+    }
+  });
+
+
+  context.subscriptions.push(pullRebase, rubocop, push, correctRubocop, goToSpec);
 }
+
+
+
 
 
 function selectTerminal(): Thenable<vscode.Terminal> {
