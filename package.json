@@ -2,7 +2,7 @@
     "name": "rails-touchbar",
     "displayName": "rails-touchbar",
     "description": "",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "kusumandaru",
     "engines": {
         "vscode": "^1.27.0"
@@ -11,7 +11,7 @@
         "Other"
     ],
     "activationEvents": [
-      "onLanguage:ruby"
+        "onLanguage:ruby"
     ],
     "main": "./out/extension",
     "contributes": {
@@ -41,7 +41,6 @@
                 "title": "goToSpec",
                 "icon": "./assets/goToSpec.png"
             }
-            
         ],
         "menus": {
             "touchBar": [
@@ -83,7 +82,10 @@
         "@types/mocha": "^2.2.42"
     },
     "repository": {
-      "type": "git",
-      "url": "https://github.com/kusumandaru/rails-touchbar.git"
+        "type": "git",
+        "url": "https://github.com/kusumandaru/rails-touchbar.git"
+    },
+    "dependencies": {
+        "event-stream": "^3.3.4"
     }
 }
