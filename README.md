@@ -1,5 +1,8 @@
 # rails-touchbar README
 
+
+<img src="https://ci.appveyor.com/api/projects/status/github/kusumandaru/rails-touchbar?branch=master&svg=true">
+
 touchbar shortcut for visual studio code. Use example for Ruby on rails
 
 ## Features
