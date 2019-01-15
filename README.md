@@ -17,6 +17,13 @@ push request
 
 install gem misogi.ruby-rubocop
 
+## Configuration
+    "rails.touchbar.correctRubocop": true,
+    "rails.touchbar.goToSpec": true,
+    "rails.touchbar.pullRebase": true,
+    "rails.touchbar.push": true,
+    "rails.touchbar.rubocop": true
+
 
 ## Known Issues
 Register issue if you found one
