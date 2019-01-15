@@ -2,6 +2,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import { getConfig } from './configuration';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -18,33 +19,33 @@ export function activate(context: vscode.ExtensionContext) {
 
   // Use the console to output diagnostic information (console.log) and errors (console.error)
   // This line of code will only be executed once when your extension is activated
-  console.log('Congratulations, your extension "rails-touchbar" is now active!');
+  console.log('Congratulations, extension "rails-touchbar" is now active!');
 
   // The command has been defined in the package.json file
   // Now provide the implementation of the command with  registerCommand
   // The commandId parameter must match the command field in package.json
 
-  
+  const config = getConfig();
   
   var rubocopExtension = vscode.extensions.getExtension( 'misogi.ruby-rubocop' );
   var goToSpecExtansion = vscode.extensions.getExtension( 'sporto.rails-go-to-spec' );
 
   const pullRebase = vscode.commands.registerCommand('extension.pullRebase', () => {
-    if (ensureTerminalExists()) {
+    if (ensureTerminalExists() && config.pullRebase) {
       selectTerminal()
         .then((terminal: any) => terminal.sendText("git pull --rebase"));
     }
   });
 
   const rubocop = vscode.commands.registerCommand('extension.rubocop', () => {
-    if (ensureTerminalExists()) {
+    if (ensureTerminalExists() && config.rubocop) {
       selectTerminal()
         .then((terminal: any) => terminal.sendText("rubocop --rails -a"));
     }
   });
 
   const push = vscode.commands.registerCommand('extension.push', () => {
-    if (ensureTerminalExists()) {
+    if (ensureTerminalExists() && config.push) {
       selectTerminal()
         .then((terminal: any) => terminal.sendText("git push"));
     }
@@ -63,7 +64,9 @@ export function activate(context: vscode.ExtensionContext) {
           }
         );   
       }
-      vscode.commands.executeCommand('editor.action.formatDocument');
+      if(config.correctRubocop) {
+        vscode.commands.executeCommand('editor.action.formatDocument');
+      }
     }
   });
 
@@ -80,10 +83,11 @@ export function activate(context: vscode.ExtensionContext) {
           }
         );   
       }
-      vscode.commands.executeCommand('extension.railsGoToSpec');
+      if(config.goToSpec) {
+        vscode.commands.executeCommand('extension.railsGoToSpec');
+      }
     }
   });
-
 
   context.subscriptions.push(pullRebase, rubocop, push, correctRubocop, goToSpec);
 }

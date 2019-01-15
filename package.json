@@ -2,19 +2,63 @@
     "name": "rails-touchbar",
     "displayName": "rails-touchbar",
     "description": "",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "publisher": "kusumandaru",
+    "author": {
+      "name": "Angga Kusumandaru",
+      "email": "angga.kusumandaru@gmail.com"
+  },
     "engines": {
         "vscode": "^1.27.0"
     },
+    "icon": "assets/robocop.png",
     "categories": [
-        "Other"
+        "Programming Languages"
     ],
     "activationEvents": [
         "onLanguage:ruby"
     ],
     "main": "./out/extension",
     "contributes": {
+        "languages": [
+          {
+            "id": "ruby",
+            "extensions": [
+              ".rb"
+            ]
+          }
+        ],
+        "configuration": {
+          "type": "object",
+          "title": "Rails-toucbar configuration",
+          "properties": {
+            "rails.touchbar.pullRebase": {
+              "type": "boolean",
+              "default": true,
+              "description": "enable pullRebase command."
+            },
+            "rails.touchbar.rubocop": {
+              "type": "boolean",
+              "default": true,
+              "description": "enable rubocop command."
+            },
+            "rails.touchbar.push": {
+              "type": "boolean",
+              "default": true,
+              "description": "execute push command."
+            },
+            "rails.touchbar.correctRubocop": {
+              "type": "boolean",
+              "default": true,
+              "description": "execute correctRubocop command."
+            },
+            "rails.touchbar.goToSpec": {
+              "type": "boolean",
+              "default": true,
+              "description": "execute goToSpec command."
+            }
+          }
+        },
         "commands": [
             {
                 "command": "extension.pullRebase",
@@ -46,23 +90,28 @@
             "touchBar": [
                 {
                     "command": "extension.pullRebase",
-                    "group": "editing"
+                    "group": "editing",
+                    "when": "config.rails.touchbar.pullRebase"
                 },
                 {
                     "command": "extension.rubocop",
-                    "group": "editing"
+                    "group": "editing",
+                    "when": "config.rails.touchbar.rubocop == true"
                 },
                 {
                     "command": "extension.push",
-                    "group": "editing"
+                    "group": "editing",
+                    "when": "config.rails.touchbar.push == true"
                 },
                 {
                     "command": "extension.correctRubocop",
-                    "group": "editing"
+                    "group": "editing",
+                    "when": "config.rails.touchbar.correctRubocop == true"
                 },
                 {
                     "command": "extension.goToSpec",
-                    "group": "editing"
+                    "group": "editing",
+                    "when": "config.rails.touchbar.correctRubocop == true"
                 }
             ]
         }
@@ -87,5 +136,12 @@
     },
     "dependencies": {
         "event-stream": "^3.3.4"
-    }
+    },
+    "keywords": [
+      "Touch Bar",
+      "touchbar",
+      "macbook",
+      "rails",
+      "ruby"
+  ]
 }
