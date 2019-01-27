@@ -6,7 +6,7 @@ export interface TouchbarConfig {
   push: boolean;
   correctRubocop: boolean;
   goToSpec: boolean;
-
+  zenMode: boolean;
 }
 
 /**
@@ -17,11 +17,11 @@ export const getConfig: () => TouchbarConfig = () => {
   const conf = vs.workspace.getConfiguration('rails.touchbar');
 
   return {
-    pullRebase: conf.get('pullRebase', true),
+    pullRebase: conf.get('pullRebase', false),
     rubocop: conf.get('rubocop', true),
-    push: conf.get('push', true),
+    push: conf.get('push', false),
     correctRubocop: conf.get('correctRubocop', true),
-    goToSpec: conf.get('goToSpec', true)
-
+    goToSpec: conf.get('goToSpec', true),
+    zenMode: conf.get('zenMode', true)
   };
 };

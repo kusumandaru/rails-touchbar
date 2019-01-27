@@ -1,8 +1,8 @@
 {
     "name": "rails-touchbar",
     "displayName": "rails-touchbar",
-    "description": "",
-    "version": "0.0.3",
+    "description": "Touchbar extension for rails user",
+    "version": "1.0.3",
     "publisher": "kusumandaru",
     "author": {
       "name": "Angga Kusumandaru",
@@ -34,7 +34,7 @@
           "properties": {
             "rails.touchbar.pullRebase": {
               "type": "boolean",
-              "default": true,
+              "default": false,
               "description": "enable pullRebase command."
             },
             "rails.touchbar.rubocop": {
@@ -44,7 +44,7 @@
             },
             "rails.touchbar.push": {
               "type": "boolean",
-              "default": true,
+              "default": false,
               "description": "execute push command."
             },
             "rails.touchbar.correctRubocop": {
@@ -56,6 +56,11 @@
               "type": "boolean",
               "default": true,
               "description": "execute goToSpec command."
+            },
+            "rails.touchbar.zenMode": {
+              "type": "boolean",
+              "default": true,
+              "description": "execute zen mode command."
             }
           }
         },
@@ -84,6 +89,11 @@
                 "command": "extension.goToSpec",
                 "title": "goToSpec",
                 "icon": "./assets/goToSpec.png"
+            },
+            {
+                "command": "extension.zenMode",
+                "title": "zenMode",
+                "icon": "./assets/zenMode.png"
             }
         ],
         "menus": {
@@ -112,6 +122,11 @@
                     "command": "extension.goToSpec",
                     "group": "editing",
                     "when": "config.rails.touchbar.correctRubocop == true"
+                },
+                {
+                    "command": "extension.zenMode",
+                    "group": "editing",
+                    "when": "config.rails.touchbar.zenMode == true"
                 }
             ]
         }

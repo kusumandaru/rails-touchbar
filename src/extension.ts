@@ -32,21 +32,21 @@ export function activate(context: vscode.ExtensionContext) {
 
   const pullRebase = vscode.commands.registerCommand('extension.pullRebase', () => {
     if (ensureTerminalExists() && config.pullRebase) {
-      selectTerminal()
+      selectTerminal('git pull rebase')
         .then((terminal: any) => terminal.sendText("git pull --rebase"));
     }
   });
 
   const rubocop = vscode.commands.registerCommand('extension.rubocop', () => {
     if (ensureTerminalExists() && config.rubocop) {
-      selectTerminal()
+      selectTerminal('rubocop --rails')
         .then((terminal: any) => terminal.sendText("rubocop --rails -a"));
     }
   });
 
   const push = vscode.commands.registerCommand('extension.push', () => {
     if (ensureTerminalExists() && config.push) {
-      selectTerminal()
+      selectTerminal('git push')
         .then((terminal: any) => terminal.sendText("git push"));
     }
   });
@@ -89,21 +89,25 @@ export function activate(context: vscode.ExtensionContext) {
     }
   });
 
-  context.subscriptions.push(pullRebase, rubocop, push, correctRubocop, goToSpec);
+  const zenMode = vscode.commands.registerCommand('extension.zenMode', () => {
+    if(config.zenMode) {
+      vscode.commands.executeCommand('workbench.action.toggleZenMode');
+    }
+  });
+
+  context.subscriptions.push(pullRebase, rubocop, push, correctRubocop, goToSpec, zenMode);
 }
 
-
-
-
-
-function selectTerminal(): Thenable<vscode.Terminal> {
+function selectTerminal(label_name: string): Thenable<vscode.Terminal> {
   interface TerminalQuickPickItem extends vscode.QuickPickItem {
     terminal: vscode.Terminal;
   }
   const terminals = <vscode.Terminal[]>(<any>vscode.window).terminals;
   const items: TerminalQuickPickItem[] = terminals.map(t => {
+    const l_name = label_name === undefined ? `name: ${t.name}` : label_name;
+
     return {
-      label: `name: ${t.name}`,
+      label: l_name,
       terminal: t
     };
   });
