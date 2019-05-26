@@ -2,12 +2,12 @@
     "name": "rails-touchbar",
     "displayName": "rails-touchbar",
     "description": "Touchbar extension for rails user",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "publisher": "kusumandaru",
     "author": {
-      "name": "Angga Kusumandaru",
-      "email": "angga.kusumandaru@gmail.com"
-  },
+        "name": "Angga Kusumandaru",
+        "email": "angga.kusumandaru@gmail.com"
+    },
     "engines": {
         "vscode": "^1.27.0"
     },
@@ -21,48 +21,48 @@
     "main": "./out/extension",
     "contributes": {
         "languages": [
-          {
-            "id": "ruby",
-            "extensions": [
-              ".rb"
-            ]
-          }
+            {
+                "id": "ruby",
+                "extensions": [
+                    ".rb"
+                ]
+            }
         ],
         "configuration": {
-          "type": "object",
-          "title": "Rails-toucbar configuration",
-          "properties": {
-            "rails.touchbar.pullRebase": {
-              "type": "boolean",
-              "default": false,
-              "description": "enable pullRebase command."
-            },
-            "rails.touchbar.rubocop": {
-              "type": "boolean",
-              "default": true,
-              "description": "enable rubocop command."
-            },
-            "rails.touchbar.push": {
-              "type": "boolean",
-              "default": false,
-              "description": "execute push command."
-            },
-            "rails.touchbar.correctRubocop": {
-              "type": "boolean",
-              "default": true,
-              "description": "execute correctRubocop command."
-            },
-            "rails.touchbar.goToSpec": {
-              "type": "boolean",
-              "default": true,
-              "description": "execute goToSpec command."
-            },
-            "rails.touchbar.zenMode": {
-              "type": "boolean",
-              "default": true,
-              "description": "execute zen mode command."
+            "type": "object",
+            "title": "Rails-toucbar configuration",
+            "properties": {
+                "rails.touchbar.pullRebase": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "enable pullRebase command."
+                },
+                "rails.touchbar.rubocop": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "enable rubocop command."
+                },
+                "rails.touchbar.push": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "execute push command."
+                },
+                "rails.touchbar.correctRubocop": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "execute correctRubocop command."
+                },
+                "rails.touchbar.goToSpec": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "execute goToSpec command."
+                },
+                "rails.touchbar.zenMode": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "execute zen mode command."
+                }
             }
-          }
         },
         "commands": [
             {
@@ -139,24 +139,25 @@
         "test": "npm run compile && node ./node_modules/vscode/bin/test"
     },
     "devDependencies": {
-        "typescript": "^2.6.1",
-        "vscode": "^1.1.21",
-        "tslint": "^5.8.0",
+        "@types/mocha": "^2.2.42",
         "@types/node": "^8.10.25",
-        "@types/mocha": "^2.2.42"
+        "tslint": "^5.8.0",
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.21"
     },
     "repository": {
         "type": "git",
         "url": "https://github.com/kusumandaru/rails-touchbar.git"
     },
     "dependencies": {
-        "event-stream": "^3.3.4"
+        "event-stream": "^3.3.4",
+        "tar": "^4.4.2"
     },
     "keywords": [
-      "Touch Bar",
-      "touchbar",
-      "macbook",
-      "rails",
-      "ruby"
-  ]
+        "Touch Bar",
+        "touchbar",
+        "macbook",
+        "rails",
+        "ruby"
+    ]
 }
