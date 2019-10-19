@@ -8,10 +8,10 @@ touchbar shortcut for visual studio code. Now focussed on Ruby on rails
 ## Features
 
 Use shortcut for:
-rubocop --rails a
-rubocop this file
-pull
-push request
+- rubocop --rails a
+- rubocop this file
+- pull request
+- push request
 etc
 
 ## Requirements
@@ -30,17 +30,6 @@ install gem misogi.ruby-rubocop
 ## Known Issues
 Register issue if you found one
 
-## Release Notes
-
-
-### 1.0.0
-first release
-
-### 1.0.1
-release config
-
-### 1.0.3
-zen mode
 -----------------------------------------------------------------------------------------------------------
 
 If you want add suggestion send on github or create PR
