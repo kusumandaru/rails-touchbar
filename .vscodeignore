@@ -11,5 +11,6 @@ tslint.json
 node_modules
 out/
 src/
+dist/
 tsconfig.json
 webpack.config.js
