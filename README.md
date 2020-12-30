@@ -14,6 +14,11 @@ Use shortcut for:
 - push request
 etc
 
+## Builds
+- npm install
+- npm run compile
+- node ./node_modules/vscode/bin/test
+
 ## Requirements
 
 install gem misogi.ruby-rubocop

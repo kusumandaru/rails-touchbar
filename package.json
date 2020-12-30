@@ -151,7 +151,8 @@
     },
     "dependencies": {
         "event-stream": "^3.3.4",
-        "tar": "^4.4.2"
+        "tar": "^4.4.2",
+        "vscode-test": "^1.4.1"
     },
     "keywords": [
         "Touch Bar",
