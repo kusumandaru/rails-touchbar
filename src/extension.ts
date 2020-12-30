@@ -40,7 +40,7 @@ export function activate(context: vscode.ExtensionContext) {
   const rubocop = vscode.commands.registerCommand('extension.rubocop', () => {
     if (ensureTerminalExists() && config.rubocop) {
       selectTerminal('rubocop --rails')
-        .then((terminal: any) => terminal.sendText("rubocop --rails -a"));
+        .then((terminal: any) => terminal.sendText("bundle exec rubocop -A"));
     }
   });
 
