@@ -144,7 +144,7 @@
     "devDependencies": {
         "@types/mocha": "^2.2.42",
         "@types/node": "^8.10.25",
-        "ts-loader": "^8.0.12",
+        "ts-loader": "^8.4.0",
         "tslint": "^5.8.0",
         "typescript": "^2.6.1",
         "vscode": "^1.1.21",
